@@ -1,0 +1,212 @@
+{
+    "info": {
+        "name": "filter_rectangles_absolute",
+        "version": "1.0.0",
+        "category": "filter",
+        "keywords": ["filter"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "zer0",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {},
+        "titles": {
+            "en": "filter.rectangles_absolute",
+            "ko": "filter.rectangles_absolute"
+        },
+        "descriptions": {
+            "en": "Filtering of BBOX.",
+            "ko": "BBOX 필터링 한다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": [ "rectangles" ],
+        "output": "result"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "min_w",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "min_w",
+                "ko": "min_w"
+            },
+            "help": {
+                "en": "(w < min_w)",
+                "ko": "(w < min_w)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "min_h",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "min_h",
+                "ko": "min_h"
+            },
+            "help": {
+                "en": "(h < min_h)",
+                "ko": "(h < min_h)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "max_w",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "max_w",
+                "ko": "max_w"
+            },
+            "help": {
+                "en": "(w > max_w)",
+                "ko": "(w > max_w)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "max_h",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "max_h",
+                "ko": "max_h"
+            },
+            "help": {
+                "en": "(h > max_h)",
+                "ko": "(h > max_h)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "min_x1",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "min_x1",
+                "ko": "min_x1"
+            },
+            "help": {
+                "en": "(x1 < min_x1)",
+                "ko": "(x1 < min_x1)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "min_y1",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "min_y1",
+                "ko": "min_y1"
+            },
+            "help": {
+                "en": "(y1 < min_y1)",
+                "ko": "(y1 < min_y1)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "max_x2",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "max_x2",
+                "ko": "max_x2"
+            },
+            "help": {
+                "en": "(x2 > max_x2)",
+                "ko": "(x2 > max_x2)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "max_y2",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "max_y2",
+                "ko": "max_y2"
+            },
+            "help": {
+                "en": "(y2 > max_y2)",
+                "ko": "(y2 > max_y2)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "dw",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "dw",
+                "ko": "dw"
+            },
+            "help": {
+                "en": "(w-h < dw)",
+                "ko": "(w-h < dw)"
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "dh",
+            "default_value": 0,
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "dh",
+                "ko": "dh"
+            },
+            "help": {
+                "en": "(h-w < dh)",
+                "ko": "(h-w < dh)"
+            }
+        },
+        {
+            "rule": "initialize_only",
+            "name": "verbose",
+            "default_value": false,
+            "type": "bool",
+            "required": false,
+            "valid": {
+                "advance": true
+            },
+            "title": {
+                "en": "Verbose",
+                "ko": "상세한"
+            },
+            "help": {
+                "en": "Verbose Logging",
+                "ko": "상세 로깅"
+            }
+        }
+    ]
+}
