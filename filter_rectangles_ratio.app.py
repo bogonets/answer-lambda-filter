@@ -33,28 +33,28 @@ def print_error(message):
 def on_set(key, val):
     if key == 'min_w':
         global min_w
-        min_w = int(val)
+        min_w = float(val)
     elif key == 'min_h':
         global min_h
-        min_h = int(val)
+        min_h = float(val)
     elif key == 'max_w':
         global max_w
-        max_w = int(val)
+        max_w = float(val)
     elif key == 'max_h':
         global max_h
-        max_h = int(val)
+        max_h = float(val)
     elif key == 'min_x1':
         global min_x1
-        min_x1 = int(val)
+        min_x1 = float(val)
     elif key == 'min_y1':
         global min_y1
-        min_y1 = int(val)
+        min_y1 = float(val)
     elif key == 'max_x2':
         global max_x2
-        max_x2 = int(val)
+        max_x2 = float(val)
     elif key == 'max_y2':
         global max_y2
-        max_y2 = int(val)
+        max_y2 = float(val)
     elif key == 'fx':
         global fx
         fx = float(val)
@@ -68,21 +68,21 @@ def on_set(key, val):
 
 def on_get(key):
     if key == 'min_w':
-        return min_w
+        return str(min_w)
     elif key == 'min_h':
-        return min_h
+        return str(min_h)
     elif key == 'max_w':
-        return max_w
+        return str(max_w)
     elif key == 'max_h':
-        return max_h
+        return str(max_h)
     elif key == 'min_x1':
-        return min_x1
+        return str(min_x1)
     elif key == 'min_y1':
-        return min_y1
+        return str(min_y1)
     elif key == 'max_x2':
-        return max_x2
+        return str(max_x2)
     elif key == 'max_y2':
-        return max_y2
+        return str(max_y2)
     elif key == 'fx':
         return str(fx)
     elif key == 'fy':
@@ -121,19 +121,20 @@ def is_filtering(screen_width, screen_height, x1, y1, x2, y2):
 
 
 def on_run(screen_shape: np.ndarray, rectangles: np.ndarray):
+    if verbose:
+        print_error(f'Screen Shape: {screen_shape}')
+        print_error(f'Original rectangles: {rectangles}')
+        print_error(f'Rectangles rank: {len(rectangles.shape)}')
+
     assert len(screen_shape.shape) == 1
     assert screen_shape.size >= 2
 
     screen_height, screen_width = screen_shape[0:2]
     rectangles_rank = len(rectangles.shape)
 
-    if verbose:
-        print_out(f'Screen Shape: {screen_shape}')
-        print_out(f'Original rectangles: {rectangles}')
-
     if rectangles_rank == 0:
         if verbose:
-            print_out(f'Result rectangles: {rectangles}')
+            print_out(f'Result rectangles(rectangles_rank={rectangles_rank}): {rectangles} ')
         return {'result': rectangles}
 
     if rectangles_rank == 1:
@@ -165,3 +166,4 @@ def on_run(screen_shape: np.ndarray, rectangles: np.ndarray):
 
 if __name__ == '__main__':
     pass
+

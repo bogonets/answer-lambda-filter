@@ -33,7 +33,7 @@
         {
             "rule": "read_and_write",
             "name": "min_w",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},
@@ -49,7 +49,7 @@
         {
             "rule": "read_and_write",
             "name": "min_h",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},
@@ -65,7 +65,7 @@
         {
             "rule": "read_and_write",
             "name": "max_w",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},
@@ -81,7 +81,7 @@
         {
             "rule": "read_and_write",
             "name": "max_h",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},
@@ -97,7 +97,7 @@
         {
             "rule": "read_and_write",
             "name": "min_x1",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},
@@ -113,7 +113,7 @@
         {
             "rule": "read_and_write",
             "name": "min_y1",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},
@@ -129,7 +129,7 @@
         {
             "rule": "read_and_write",
             "name": "max_x2",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},
@@ -145,7 +145,7 @@
         {
             "rule": "read_and_write",
             "name": "max_y2",
-            "default_value": 0,
+            "default_value": 0.0,
             "type": "float",
             "required": true,
             "valid": {},

@@ -125,7 +125,7 @@ def on_run(rectangles: np.ndarray):
 
     if rectangles_rank == 0:
         if verbose:
-            print_out(f'Result rectangles: {rectangles}')
+            print_out(f'Result rectangles(rectangles_rank={rectangles_rank}): {rectangles}')
         return {'result': rectangles}
 
     if rectangles_rank == 1:
