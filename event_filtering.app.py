@@ -32,12 +32,14 @@ center_distance_threshold = 0.8
 
 # flag
 time_flag = False
+wating_flag = False
 
 # for box values
 box_list = []
 
 # for time
 time_list = []
+wating_list = [] 
 
 # for count
 blocking_count_box = []
@@ -153,9 +155,7 @@ def on_run(bboxes: np.ndarray):
     global blocking_count_box
     global box_list
     global time_flag
-
-    if not bboxes.shape:
-        return {'box' : None}
+    global wating_flag
 
     if isinstance(bboxes, list):
         bboxes = np.array(bboxes)
@@ -178,9 +178,9 @@ def on_run(bboxes: np.ndarray):
         output_box = replace(box_list)
         a = measure_run(blocking_count_box, time_flag)
         if a:
-            wating_starter()
-            blocking_count_box.clear()
+            return {'box' : np.array(None)}
         else:
+            wating_flag=False
             return {'box' : np.array(bboxes)}
 
 # Time for measure
@@ -189,6 +189,9 @@ def measure_run(count_box, time_flag=False):
     global measure_count
     global time_list
     global blocking_count_box
+    global data_blocking_time
+    global wating_flag
+    global wating_list
 
     cur_t = time.time()
 
@@ -197,8 +200,14 @@ def measure_run(count_box, time_flag=False):
 
     if len(count_box) >= 1:
         if time_checker(time_list, cur_t, measure_time, measure_count):
-            time_list.clear()
-            return True
+            wating_flag=True
+            wating_list.append(cur_t)
+            if wating_starter(wating_list, cur_t, data_blocking_time, wating_flag):
+                time_list.clear()
+                wating_list.clear()
+                return False 
+            else:
+                return True
         elif not len(time_list) == 0 and cur_t - time_list[-1] > measure_time:
             time_list.clear()
             blocking_count_box.clear()
@@ -211,11 +220,10 @@ def time_checker(time_list, cur_t, measure_time, measure_count):
     ln = len(filtered)
     return len(filtered) >= measure_count
 
-def wating_starter():
-    t_end = int(60 * data_blocking_time)
-    while (t_end != 0):
-        t_end = t_end-1
-        time.sleep(1)
-        print_error(f't_end : {t_end}')
-    return print_error(f'[=====event measure restart=====]')
+def wating_starter(wating_list, current, blocking_time, wating_flag=False):
+    filtered_check = [x for x in wating_list if current - x >= int(60*data_blocking_time)]
+    if len(filtered_check) >= 1:
+        return True
+    else:
+        return False
 
