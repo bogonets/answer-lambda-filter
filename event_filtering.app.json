@@ -1,0 +1,98 @@
+{
+    "info": {
+        "name": "event_filtering",
+        "version": "1.0.0",
+        "category": "filter",
+        "keywords": ["filter"],
+        "homepage": "https://answer.bogonets.com/",
+        "bugs": "https://answer.bogonets.com/",
+        "license": "Bogonet License",
+        "author": "ysna629",
+        "dependencies": [
+            {"type": "pip", "src": "numpy"}
+        ],
+        "engines": ">=1.0.2",
+        "environment": {},
+        "titles": {
+            "en": "event_filter",
+            "ko": "이벤트필터"
+        },
+        "descriptions": {
+            "en": "Filtering of Event.",
+            "ko": "이벤트를 필터링 한다."
+        },
+        "documentation_mime": "text",
+        "documentations": {},
+        "meta": {}
+    },
+    "controls": {
+        "input": "bboxes",
+        "output": "box"
+    },
+    "props": [
+        {
+            "rule": "read_and_write",
+            "name": "measure_time",
+            "default_value": "30",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "measure_time",
+                "ko": "측정 시간(초)"
+            },
+            "help": {
+                "en": "Measures events over a certain period of time.",
+                "ko": "일정 시간 동안의 이벤트를 측정합니다(초)."
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "measure_count",
+            "default_value": "10",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "measure_count",
+                "ko": "횟수 측정"
+            },
+            "help": {
+                "en": "Measure the number of evnets that occur",
+                "ko": "발생하는 이벤트 수를 측정합니다. "
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "center_distance_threshold",
+            "default_value": "0.8",
+            "type": "float",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "Center distance threshold",
+                "ko": "중앙 거리 임계치"
+            },
+            "help": {
+                "en": "",
+                "ko": ""
+            }
+        },
+        {
+            "rule": "read_and_write",
+            "name": "data_blocking_time",
+            "default_value": "30",
+            "type": "int",
+            "required": true,
+            "valid": {},
+            "title": {
+                "en": "data blocking retention time",
+                "ko": "데이터 차단 유지 시간(분)"
+            },
+            "help": {
+                "en": "Blocks event occurrence for a set time",
+                "ko": "설정된 시간(분) 동안 이벤트 발생을 차단합니다."
+            }
+        }
+    ]
+}
