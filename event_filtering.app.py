@@ -178,7 +178,7 @@ def on_run(bboxes: np.ndarray):
         output_box = replace(box_list)
         a = measure_run(blocking_count_box, time_flag)
         if a:
-            return {'box' : np.array(None)}
+            return {None}
         else:
             wating_flag=False
             return {'box' : np.array(bboxes)}
