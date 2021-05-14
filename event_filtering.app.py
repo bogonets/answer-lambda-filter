@@ -39,7 +39,7 @@ box_list = []
 
 # for time
 time_list = []
-wating_list = [] 
+wating_list = []
 
 # for count
 blocking_count_box = []
@@ -177,8 +177,9 @@ def on_run(bboxes: np.ndarray):
                 time_flag = False
         output_box = replace(box_list)
         a = measure_run(blocking_count_box, time_flag)
+        #print_error(f'on_run - input - bbox : {bboxes}')
         if a:
-            return {None}
+            return {}
         else:
             wating_flag=False
             return {'box' : np.array(bboxes)}
@@ -205,7 +206,7 @@ def measure_run(count_box, time_flag=False):
             if wating_starter(wating_list, cur_t, data_blocking_time, wating_flag):
                 time_list.clear()
                 wating_list.clear()
-                return False 
+                return False
             else:
                 return True
         elif not len(time_list) == 0 and cur_t - time_list[-1] > measure_time:
